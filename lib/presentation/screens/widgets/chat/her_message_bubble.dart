@@ -52,7 +52,16 @@ class _ImageBubble extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Image.network(
-          'https://yesno.wtf/assets/no/25-55dc62642f92cf4110659b3c80e0d7ec.gif'),
+          'https://yesno.wtf/assets/no/25-55dc62642f92cf4110659b3c80e0d7ec.gif',
+          width: size.width * 0.7,
+          height: 150,
+          fit: BoxFit.cover,
+          loadingBuilder: (context, child, loadingProgress) => loadingProgress == null
+              ? child
+              : const Center(
+                  child: CircularProgressIndicator(),
+                )
+          ),
     );
   }
 }
